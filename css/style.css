@@ -44,12 +44,31 @@ label {
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 .button:hover {
   background-color: #ecb6ff;
+  color: #000000; /* Optional: changing the text color on hover */
 }
-.message {
-  text-align: center;
-  margin-top: 1rem;
+.error-label {
+  margin: 1rem 0rem;
   color: #d9534f;
+}
+
+.link {
+  color: #000000;
+  font-weight: bold;
+}
+
+.link:hover {
+  opacity: 0.5;
+}
+
+.img-cover-login {
+  width: 600px;
+  border-radius: 24px;
+  margin: 0.5rem;
+  height: -webkit-fill-available;
+  object-fit: cover;
 }

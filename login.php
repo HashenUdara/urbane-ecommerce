@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 include 'db_connect.php';
-
+$err_msg = "";
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
@@ -17,12 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Verify password
         if (password_verify($password, $hashed_password)) {
-            echo "Login successful!"; // Redirect or handle login success
+            $err_msg = "Login successful!"; // Redirect or handle login success
         } else {
-            echo "Invalid password.";
+            $err_msg = "Invalid password.";
         }
     } else {
-        echo "No user found with this email.";
+        $err_msg = "No user found with this email.";
     }
 }
 
@@ -38,13 +38,6 @@ $conn->close();
     <title>Login Page</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .img-cover {
-
-            width: 500px;
-            border-radius: 24px;
-            margin: 0.5rem;
-        }
-
         .login-container {
             display: flex;
             justify-content: center;
@@ -59,7 +52,7 @@ $conn->close();
     <div class="container" style="display: flex;">
 
         <div>
-            <img src="img/logo-bg.png" class="img-cover" />
+            <img src="img/logo-bg.png" class="img-cover-login" />
         </div>
 
         <div class="login-container">
@@ -73,7 +66,12 @@ $conn->close();
                     <label for="password">Password:</label>
                     <input type="password" class="input-field" id="password" name="password" required placeholder="Enter your password">
                     <br>
+                    <div class="error-label">
+                        <?php echo $err_msg ?>
+                    </div>
+
                     <input type="submit" class="button" value="Login">
+                    <p class="sub-heading">Don't have an account? <a href="./register.php" class="link">Register Now</a></p>
                 </form>
                 <div class="message">
                     <?php
