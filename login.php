@@ -59,7 +59,8 @@ $conn->close();
             <div style=" width: 300px">
                 <h1>Login to your account</h1>
                 <p class="sub-heading">Lorem, amet consectetur ipsum dolor sit amet consectetur adipisicing elit. </p>
-                <form method="post" action="" style=" margin-top:2rem;">
+                <form method="post" action="" style="margin-top:2rem;">
+                    <!-- label tag learn from :  https://www.w3schools.com/html/html_forms.asp -->
                     <label for="email">Email:</label>
                     <input type="text" class="input-field" id="email" name="email" required placeholder="Enter username or email">
                     <br>

@@ -80,6 +80,8 @@ $conn->close();
                 <h1>Create a New Account</h1>
                 <p class="sub-heading">Sign up to get started with our services.</p>
                 <form name="myForm" method="post" action="" onsubmit="return validate();" style="margin-top:2rem;">
+
+                    <!-- label tag learn from :  https://www.w3schools.com/html/html_forms.asp -->
                     <label for="name">Name:</label>
                     <input type="text" class="input-field" id="name" name="name" required placeholder="Enter your name">
                     <span id="nameError" class="error-message"></span>
