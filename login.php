@@ -2,13 +2,13 @@
 include 'header.php';
 include 'db_connect.php';
 $err_msg = "";
-// Check if form is submitted
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
     // Query to check user
-    $query = "SELECT password FROM users WHERE email = '$email'";
+    $query = "SELECT password, role FROM users WHERE email = '$email'";
     $result = $conn->query($query);
 
     if ($result->num_rows > 0) {
@@ -17,7 +17,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Verify password
         if (password_verify($password, $hashed_password)) {
-            $err_msg = "Login successful!"; // Redirect or handle login success
+
+            // Set session variables
+            $_SESSION['email'] = $email;
+            $_SESSION['role'] = $row['role'];
+            if ($row['role'] == 'admin') {
+                header("Location: ./admin/index.php");
+                exit();
+            } else if ($row['role'] == 'customer') {
+                header('Location: dashboard.php');
+            }
         } else {
             $err_msg = "Invalid password.";
         }
