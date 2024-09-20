@@ -31,6 +31,7 @@ CREATE TABLE products (
     stock_quantity INT(4),
     category_id INT,
     img_url VARCHAR(255),
+    featured BOOLEAN DEFAULT 0;
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (category_id) REFERENCES categories(id)
