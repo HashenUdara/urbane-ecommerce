@@ -1,5 +1,5 @@
 <?php
-include 'header.php';
+session_start();
 include 'db_connect.php';
 $err_msg = "";
 
@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Query to check user
-    $query = "SELECT password, role FROM users WHERE email = '$email'";
+    $query = "SELECT user_id , password, role FROM users WHERE email = '$email'";
     $result = $conn->query($query);
 
     if ($result->num_rows > 0) {
@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Set session variables
             $_SESSION['email'] = $email;
             $_SESSION['role'] = $row['role'];
+            $_SESSION['user_id'] = $row['user_id'];
             if ($row['role'] == 'admin') {
                 header("Location: ./admin/index.php");
                 exit();

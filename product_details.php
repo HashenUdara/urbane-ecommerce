@@ -68,18 +68,17 @@ $same_category_products_result = mysqli_query($conn, $sql);
                 <p class="description">
                     <?php echo $product['description']; ?>
                 </p>
+                <form action="add_to_cart.php" method="post" class="add-to-cart-button-wrapper">
+                    <input type="number" name="quantity" value="1" min="1">
+                    <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+                    <input type="submit" class="btn" value="Add to Cart">
+                </form>
 
-                <a href="add_to_cart.php?product_id=<?php echo $product_id; ?>" class="btn">Add to Cart</a>
                 <div class="product-meta">
                     <span>SKU: PROD<?php echo $product_id; ?></span>
                     <span>Category: <?php echo $product['category']; ?></span>
                 </div>
-                <div class="social-share">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
+
             </div>
         </div>
     </div>
