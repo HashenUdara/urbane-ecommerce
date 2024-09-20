@@ -30,7 +30,7 @@ if (isset($_POST['update-product'])) {
         $image_dir = '../img/uploads/';
         $image_file = $image_dir . basename($_FILES["image"]["name"]);
 
-        // Check if image file is an actual image
+
         $check_image = getimagesize($_FILES["image"]["tmp_name"]);
         if ($check_image === false) {
             $err_msg = "File is not an image.";
@@ -83,9 +83,7 @@ if (isset($_POST['update-product'])) {
     <title><?php echo $title ?></title>
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/style.css">
-    <style>
-        /* Add your styles here */
-    </style>
+
 </head>
 
 <body>

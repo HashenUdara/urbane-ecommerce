@@ -104,7 +104,7 @@ $result = mysqli_query($conn, $sql);
                     </td>
                     <td><?php echo $row['name'] ?></td>
                     <td><?php echo $row['description'] ?></td>
-                    <td><?php echo number_format($row['price'], 2) ?></td>
+                    <td>LKR.<?php echo number_format($row['price'], 2) ?></td>
                     <td><?php echo $row['stock_quantity'] ?></td>
                     <td><?php echo $row['category_name'] ?></td>
                     <td><a class="update-btn" href="update_product.php?product_id=<?php echo $row['id']; ?>">Update</a></td>

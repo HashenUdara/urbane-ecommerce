@@ -63,23 +63,7 @@ $conn->close();
     <title><?php echo $title ?></title>
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/style.css">
-    <style>
-        .login-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 500px;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 100%;
-            margin: auto;
-        }
 
-        .content {
-            display: flex;
-        }
-    </style>
 
     <script src="../js/registration-form-validation.js"></script>
 </head>
@@ -93,8 +77,8 @@ $conn->close();
     <?php include("./topbar.php"); ?>
 
     <!-- Content -->
-    <div class="content">
-        <div class="login-container">
+    <div class="content card-container-flex ">
+        <div class="card-container">
             <div style="width: 400px; margin: 2rem 0rem;">
                 <h1>Update User Details</h1>
                 <p class="sub-heading">Sign up to get started with our services.</p>

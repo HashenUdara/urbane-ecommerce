@@ -51,23 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title><?php echo $title ?></title>
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/style.css">
-    <style>
-        .login-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 500px;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 100%;
-            margin: auto;
-        }
 
-        .content {
-            display: flex;
-        }
-    </style>
 </head>
 
 <body>
@@ -79,8 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php include("./topbar.php"); ?>
 
     <!-- Content -->
-    <div class="content">
-        <div class="login-container">
+    <div class="content card-container-flex ">
+        <div class="card-container">
             <div style="width: 400px; margin: 2rem 0rem;">
                 <h1>Add a New Product</h1>
 
@@ -126,7 +110,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="error-label"><?php echo $err_msg; ?></div>
                     <div class="success-label"><?php echo $success_msg; ?></div>
                     <div class="btn-container">
-                        <a href="products.php" class="button secondary-button">Back</a>
+                        <a href="products.php" class="button secondary-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                            </svg>
+                            Back</a>
                         <input type="submit" class="button" value="Add Product">
                     </div>
                 </form>
