@@ -22,13 +22,16 @@
             </ul>
         </li>
         <li>
-            <a href="#">
+            <a href="./orders.php">
                 Orders
+            </a>
+            <a href="./products.php">
+                Products
             </a>
         </li>
         <li>
-            <a href="#">
-                Settings
+            <a href="./users.php">
+                Users
             </a>
         </li>
     </ul>
