@@ -5,12 +5,10 @@ $title = 'Product List';
 
 $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
 
-// SQL query to get product details along with one image
-$sql = "SELECT p.id, p.name, p.description, p.price, p.stock_quantity, c.name AS category_name, pi.img_url
+// SQL query to get product details including image URL directly from the products table
+$sql = "SELECT p.id, p.name, p.description, p.price, p.stock_quantity, c.name AS category_name, p.img_url
         FROM products p
-        JOIN categories c ON p.category_id = c.id
-        LEFT JOIN product_images pi ON p.id = pi.product_id
-        GROUP BY p.id"; // Group by product ID to get one image per product
+        JOIN categories c ON p.category_id = c.id";
 
 $result = mysqli_query($conn, $sql);
 
@@ -96,8 +94,10 @@ $result = mysqli_query($conn, $sql);
                 <tr>
                     <td><?php echo $row['id'] ?></td>
                     <td>
-                        <?php if ($row['img_url']): ?>
-                            <img src="<?php echo $row['img_url'] ?>" alt="<?php echo $row['name'] ?>" class="product-img">
+                        <?php if ($row['img_url']):
+
+                            $imagePath = dirname($_SERVER['PHP_SELF']) . '/..' . $row['img_url']; ?>
+                            <img src="<?php echo $imagePath ?>" alt="<?php echo $row['name'] ?>" class="product-img">
                         <?php else: ?>
                             <img src="../img/default-product.png" alt="No image" style="width:50px; height:auto;">
                         <?php endif; ?>

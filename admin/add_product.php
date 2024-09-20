@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $image = $_FILES['image']['name'];
 
     // Image upload handling
-    $image_dir = '../uploads/images/';
+    $image_dir = '../img/uploads/';
     $image_file = $image_dir . basename($image);
 
     // Check if image file is an actual image
@@ -23,18 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $err_msg = "File is not an image.";
     } else {
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $image_file)) {
+            $image_path = '/img/uploads/' . basename($image);
             // Insert product into database
-            $query = "INSERT INTO products (name, description, price, stock_quantity, category_id)
-                      VALUES ('$name', '$description', '$price', '$stock_quantity', '$category_id')";
+            $query = "INSERT INTO products (name, description, price, stock_quantity, category_id, img_url)
+                      VALUES ('$name', '$description', '$price', '$stock_quantity', '$category_id','$image_path')";
 
             if ($conn->query($query) === TRUE) {
-                $product_id = $conn->insert_id;
-
-                // Insert image path into product_images table
-                $stmt = $conn->prepare("INSERT INTO product_images (img_url, product_id) VALUES (?, ?)");
-                $stmt->bind_param("si", $image_file, $product_id);
-                $stmt->execute();
-
                 header("Location: products.php?msg=product_added");
             } else {
                 $err_msg = "Error: " . $conn->error;
@@ -45,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-$conn->close();
+
 ?>
 
 <!DOCTYPE html>
@@ -89,6 +83,7 @@ $conn->close();
         <div class="login-container">
             <div style="width: 400px; margin: 2rem 0rem;">
                 <h1>Add a New Product</h1>
+
                 <form method="post" enctype="multipart/form-data">
                     <label for="name">Product Name:</label>
                     <input type="text" class="input-field" id="name" name="name" required placeholder="Enter product name">
@@ -101,6 +96,9 @@ $conn->close();
                     <label for="price">Price:</label>
                     <input type="number" class="input-field" id="price" name="price" step="0.01" required placeholder="Enter product price">
                     <br>
+                    <label for="image">Product Image:</label>
+                    <input type="file" class="input-field" id="image" name="image" accept="image/*" required>
+                    <br>
 
                     <label for="stock_quantity">Stock Quantity:</label>
                     <input type="number" class="input-field" id="stock_quantity" name="stock_quantity" required placeholder="Enter stock quantity">
@@ -112,16 +110,18 @@ $conn->close();
                         <?php
                         $category_query = "SELECT id, name FROM categories";
                         $categories = $conn->query($category_query);
-                        while ($category = $categories->fetch_assoc()) {
-                            echo "<option value='{$category['id']}'>{$category['name']}</option>";
+
+                        if ($categories) {
+                            while ($category = $categories->fetch_assoc()) {
+                                echo "<option value='{$category['id']}'>{$category['name']}</option>";
+                            }
+                        } else {
+                            echo "<option value=''>Error fetching categories</option>";
                         }
                         ?>
                     </select>
                     <br>
 
-                    <label for="image">Product Image:</label>
-                    <input type="file" class="input-field" id="image" name="image" accept="image/*" required>
-                    <br>
 
                     <div class="error-label"><?php echo $err_msg; ?></div>
                     <div class="success-label"><?php echo $success_msg; ?></div>
@@ -137,3 +137,9 @@ $conn->close();
 </body>
 
 </html>
+
+<?php
+
+$conn->close();
+
+?>
