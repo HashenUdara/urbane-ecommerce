@@ -95,7 +95,7 @@ $result = mysqli_query($conn, $sql);
                     <td>LKR.<?php echo $row['total_amount'] ?></td>
                     <td><?php echo $row['status'] ?></td>
                     <td><?php echo $row['created_at'] ?></td>
-                    <td><a class="update-btn" href="update_order.php?order_id=<?php echo $row['order_id']; ?>">Update</a></td>
+                    <td><a class="update-btn" href="view_order.php?order_id=<?php echo $row['order_id']; ?>">View Order</a></td>
                     <td><a class="delete-btn" href="javascript:void(0);" onclick="confirmDelete(<?php echo $row['order_id']; ?>)">Delete</a></td>
                 </tr>
             <?php
