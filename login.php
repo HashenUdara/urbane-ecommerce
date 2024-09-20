@@ -48,7 +48,7 @@ $conn->close();
     </style>
 </head>
 
-<body>
+<body class="login">
     <div class="container" style="display: flex;">
 
         <div>

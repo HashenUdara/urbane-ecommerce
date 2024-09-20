@@ -69,7 +69,7 @@ $conn->close();
     <script src="./js/registration-form-validation.js"></script>
 </head>
 
-<body>
+<body class="register">
     <div class="container" style="display: flex;">
         <div>
             <img src="img/img1.jpg" class="img-cover-login" />
