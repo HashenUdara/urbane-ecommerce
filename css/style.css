@@ -51,6 +51,7 @@ label {
   font-size: 16px;
   cursor: pointer;
   display: flex;
+  justify-content: center;
   gap: 6px;
   height: fit-content;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -129,4 +130,21 @@ label {
 
 .w-fit {
   width: fit-content;
+}
+
+.error-message {
+  color: red;
+  font-size: small;
+}
+
+.icon {
+  height: 1.1rem;
+  width: 1.1rem;
+}
+
+.secondary-button {
+  background-color: #d7d7d793;
+  color: rgb(0, 0, 0);
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
