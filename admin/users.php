@@ -50,38 +50,27 @@ $result = mysqli_query($conn, $sql);
                 Add new user</a>
         </div>
 
-        <?php if ($msg == 'user_added') { ?>
-            <div class="alert">
-                User successfully added!
-                <a class="close-btn" href="./users.php">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                    </svg>
-                </a>
-            </div>
-        <?php } ?>
+        <?php
+        $messages = [
+            'user_added' => 'User successfully added!',
+            'user_updated' => 'User successfully updated!',
+            'user_deleted' => 'User successfully deleted!',
+        ];
 
-        <?php if ($msg == 'user_updated') { ?>
+        if (array_key_exists($msg, $messages)) {
+            $messageText = $messages[$msg];
+        ?>
             <div class="alert">
-                User successfully updated!
+                <?= $messageText ?>
                 <a class="close-btn" href="./users.php">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                     </svg>
                 </a>
             </div>
-        <?php } ?>
-
-        <?php if ($msg == 'user_deleted') { ?>
-            <div class="alert">
-                User successfully deleted!
-                <a class="close-btn" href="./users.php">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                    </svg>
-                </a>
-            </div>
-        <?php } ?>
+        <?php
+        }
+        ?>
 
         <table>
             <tr>

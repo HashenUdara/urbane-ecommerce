@@ -7,8 +7,6 @@ $success_msg = "";
 
 if (isset($_GET['user_id'])) {
     $user_id = $_GET['user_id'];
-
-
     $sql = "SELECT * FROM users WHERE user_id = $user_id";
     $result = mysqli_query($conn, $sql);
 
@@ -26,8 +24,6 @@ if (isset($_POST['update-user'])) {
     $password = $_POST['password'];
     $address = $_POST['address'];
     $phone_number = $_POST['phone_number'];
-
-
 
     // Check if the email already exists for another user
     $check_email_query = "SELECT user_id FROM users WHERE email = '$email' AND user_id != $user_id";
