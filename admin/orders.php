@@ -44,12 +44,7 @@ $result = mysqli_query($conn, $sql);
                 <h1>Orders</h1>
                 <p style="color:#4c4c4c; padding-bottom:20px;">View and manage all customer orders below</p>
             </div>
-            <a class="button w-fit" href="./add_order.php">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
 
-                Add new order</a>
         </div>
 
         <?php
@@ -93,7 +88,17 @@ $result = mysqli_query($conn, $sql);
                     <td><?php echo $row['email'] ?></td>
                     <td><?php echo $row['name'] ?></td>
                     <td>LKR.<?php echo $row['total_amount'] ?></td>
-                    <td><?php echo $row['status'] ?></td>
+                    <td>
+                        <?php if ($row['status'] == 'Pending') { ?>
+                            <span class="badge badge-pending">Pending</span>
+                        <?php } elseif ($row['status'] == 'Shipped') { ?>
+                            <span class="badge badge-shipped">Shipped</span>
+                        <?php } elseif ($row['status'] == 'Delivered') { ?>
+                            <span class="badge badge-delivered">Delivered</span>
+                        <?php } elseif ($row['status'] == 'Canceled') { ?>
+                            <span class="badge badge-canceled">Canceled</span>
+                        <?php } ?>
+                    </td>
                     <td><?php echo $row['created_at'] ?></td>
                     <td><a class="update-btn" href="view_order.php?order_id=<?php echo $row['order_id']; ?>">View Order</a></td>
                     <td><a class="delete-btn" href="javascript:void(0);" onclick="confirmDelete(<?php echo $row['order_id']; ?>)">Delete</a></td>

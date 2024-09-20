@@ -114,7 +114,15 @@ if (isset($_GET['order_id'])) {
                             <tr>
                                 <td><strong>Status:</strong> </td>
                                 <td>
-                                    <?php echo $order['status']; ?>
+                                    <?php if ($order['status'] == 'Pending') { ?>
+                                        <span class="badge badge-pending">Pending</span>
+                                    <?php } elseif ($order['status'] == 'Shipped') { ?>
+                                        <span class="badge badge-shipped">Shipped</span>
+                                    <?php } elseif ($order['status'] == 'Delivered') { ?>
+                                        <span class="badge badge-delivered">Delivered</span>
+                                    <?php } elseif ($order['status'] == 'Canceled') { ?>
+                                        <span class="badge badge-canceled">Canceled</span>
+                                    <?php } ?>
                                 </td>
                             </tr>
                             <tr>
