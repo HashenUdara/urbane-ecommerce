@@ -67,11 +67,17 @@ $total = $subtotal + $shipping + $tax;
                                 <div class="item-quantity">
                                     <form method="POST" action="update_cart_quantity.php">
                                         <input type="hidden" name="product_id" value="<?php echo $item['product_id']; ?>">
-                                        <input type="number" name="quantity" value="<?php echo $item['quantity']; ?>" min="1">
-                                        <input type="submit" class="btn" value="Update quantity">
+                                        <input type="hidden" name="quantity" value="<?php echo (int)$item['quantity'] - 1; ?>">
+                                        <button type="submit" name="update_quantity" value="decrease" class="quantity-btn">-</button>
+                                    </form>
+                                    <span class="quantity"><?php echo $item['quantity']; ?></span>
+                                    <form method="POST" action="update_cart_quantity.php">
+                                        <input type="hidden" name="product_id" value="<?php echo $item['product_id']; ?>">
+                                        <input type="hidden" name="quantity" value="<?php echo (int)$item['quantity'] + 1; ?>">
+                                        <button type="submit" name="update_quantity" value="increase" class="quantity-btn">+</button>
                                     </form>
                                     <span class="remove-item">
-                                        <a class="btn" style="background-color: red;" href="remove_from_cart.php?product_id=<?php echo $item['product_id']; ?>">Remove</a>
+                                        <a href="remove_from_cart.php?product_id=<?php echo $item['product_id']; ?>">Remove</a>
                                     </span>
                                 </div>
                             </div>
