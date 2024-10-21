@@ -58,7 +58,6 @@ function validate() {
   // Validate phone number
   if (
     document.myForm.phone_number.value == "" ||
-    isNaN(document.myForm.phone_number.value) ||
     document.myForm.phone_number.value.length != 10
   ) {
     document.getElementById("phoneError").innerHTML =

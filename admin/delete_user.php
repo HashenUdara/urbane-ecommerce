@@ -33,6 +33,7 @@ if (isset($_GET['user_id'])) {
 
 
         mysqli_commit($conn);
+
         header("Location:users.php?msg=user_deleted");
     } catch (mysqli_sql_exception $exception) {
 

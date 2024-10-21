@@ -8,6 +8,7 @@ $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
 $sql = "SELECT * FROM users WHERE role='customer'";
 $result = mysqli_query($conn, $sql);
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -103,3 +104,9 @@ $result = mysqli_query($conn, $sql);
 </body>
 
 </html>
+
+<?php
+
+$conn->close();
+
+?>

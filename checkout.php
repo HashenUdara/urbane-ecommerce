@@ -55,10 +55,44 @@ if (mysqli_query($conn, $order_query)) {
     $clear_cart_query = "DELETE FROM cart_items WHERE cart_id = $cart_id";
     mysqli_query($conn, $clear_cart_query);
 
-    echo "Order placed successfully! Your order ID is " . $order_id;
+?>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cart | Urban Clothing</title>
+        <link rel="stylesheet" href="./css/home.css">
+    </head>
+
+    <body>
+
+        <?php include './navbar.php'; ?>
+        <main class="container" style="margin: 100px auto;">
+            <h1>Order Placed</h1>
+            <div class="cart-container">
+                <div class="cart-items">
+                    <p>
+                        <?php echo "Order placed successfully! Your order ID is " . $order_id; ?>
+                    </p>
+                    <a href="index.php" class="btn">Continue Shopping</a>
+                </div>
+
+            </div>
+        </main>
+
+    <?php
+
+
 } else {
     echo "Error placing order: " . mysqli_error($conn);
 }
 
 
-mysqli_close($conn);
+
+include 'footer.php'; ?>
+    </body>
+
+    </html>

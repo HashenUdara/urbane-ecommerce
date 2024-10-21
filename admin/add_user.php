@@ -1,6 +1,7 @@
 <?php
 include '../header.php';
 include '../db_connect.php';
+
 $title = 'Add New User';
 $err_msg = "";
 $success_msg = "";
@@ -77,32 +78,32 @@ $conn->close();
 
                     <!-- label tag learn from :  https://www.w3schools.com/html/html_forms.asp -->
                     <label for="name">Name:</label>
-                    <input type="text" class="input-field" id="name" name="name" required placeholder="Enter customer name">
+                    <input type="text" class="input-field" id="name" name="name" placeholder="Enter customer name">
                     <span id="nameError" class="error-message"></span>
                     <br>
 
                     <label for="email">Email:</label>
-                    <input type="email" class="input-field" id="email" name="email" required placeholder="Enter customer email">
+                    <input type="email" class="input-field" id="email" name="email" placeholder="Enter customer email">
                     <span id="emailError" class="error-message"></span>
                     <br>
 
                     <label for="password">Password:</label>
-                    <input type="password" class="input-field" id="password" name="password" required placeholder="Enter customer password">
+                    <input type="password" class="input-field" id="password" name="password" placeholder="Enter customer password">
                     <span id="passwordError" class="error-message"></span>
                     <br>
 
                     <label for="confirm_password">Confirm Password:</label>
-                    <input type="password" class="input-field" id="confirm_password" name="confirm_password" required placeholder="Confirm customer password">
+                    <input type="password" class="input-field" id="confirm_password" name="confirm_password" placeholder="Confirm customer password">
                     <span id="confirmPasswordError" class="error-message"></span>
                     <br>
 
                     <label for="address">Address:</label>
-                    <input type="text" class="input-field" id="address" name="address" required placeholder="Enter customer address">
+                    <input type="text" class="input-field" id="address" name="address" placeholder="Enter customer address">
                     <span id="addressError" class="error-message"></span>
                     <br>
 
                     <label for="phone_number">Phone Number:</label>
-                    <input type="text" class="input-field" id="phone_number" name="phone_number" required placeholder="Enter customer 10-digit phone number">
+                    <input type="text" class="input-field" id="phone_number" name="phone_number" placeholder="Enter customer 10-digit phone number">
                     <span id="phoneError" class="error-message"></span>
                     <br>
 

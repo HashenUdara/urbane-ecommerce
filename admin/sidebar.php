@@ -10,17 +10,6 @@
                 Dashboard
             </a>
         </li>
-        <li class="active">
-            <a href="#" class="toggle-btn">
-
-                <span>Users</span>
-                <span>▼</span>
-            </a>
-            <ul>
-                <li><a href="#">All Users</a></li>
-                <li><a href="#">New User</a></li>
-            </ul>
-        </li>
         <li>
             <a href="./orders.php">
                 Orders

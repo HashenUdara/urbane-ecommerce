@@ -4,6 +4,6 @@
     </div>
     <div class="profile">
         <img src="https://via.placeholder.com/40" alt="Profile">
-        <span>Admin Name</span>
+        Admin Name
     </div>
 </div>

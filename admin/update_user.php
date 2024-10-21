@@ -97,7 +97,7 @@ $conn->close();
                     <br>
 
                     <label for="name">Update Name:</label>
-                    <input type="text" class="input-field" id="name" name="name" value='<?php echo $row['name'] ?>' required placeholder="Enter customer name">
+                    <input type="text" class="input-field" id="name" value='<?php echo $row['name'] ?>' name="name" required placeholder="Enter customer name">
                     <span id="nameError" class="error-message"></span>
                     <br>
 

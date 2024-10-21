@@ -5,9 +5,9 @@
         </a>
 
         <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Collections</a>
-            <a href="#">About</a>
+            <a href="./index.php">Home</a>
+            <a href="./shop.php">Collections</a>
+            <a href="./cart">Cart</a>
             <a href="#">Contact</a>
         </div>
     </nav>
