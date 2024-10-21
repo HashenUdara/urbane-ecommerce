@@ -11,8 +11,8 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $product_id = intval($_POST['product_id']);
-    $new_quantity = intval($_POST['quantity']);
+    $product_id = (int)($_POST['product_id']);
+    $new_quantity = (int)($_POST['quantity']);
 
     if ($new_quantity <= 0) {
         // Remove the item from the cart if quantity is less than or equal to 0
@@ -27,12 +27,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (mysqli_query($conn, $sql)) {
-        echo json_encode(['success' => true]);
+        header("Location: cart.php?message=Product quantity updated successfully");
+        exit();
     } else {
-        echo json_encode(['error' => 'Failed to update quantity']);
+        header("Location: cart.php?message=Failed to update quantity");
+        exit();
     }
-} else {
-    echo json_encode(['error' => 'Invalid request method']);
 }
 
 mysqli_close($conn);

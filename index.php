@@ -19,8 +19,7 @@ $featured_products_result = mysqli_query($conn, $sql);
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Urban Clothing - Elegant Fashion for the Modern Elite</title>
 
     <link rel="stylesheet" href="./css/home.css">
@@ -50,10 +49,10 @@ $featured_products_result = mysqli_query($conn, $sql);
                     // Loop through each category and display it
                     while ($row = mysqli_fetch_assoc($categories_result)) {
                     ?>
-                        <div class="category-card">
+                        <a class="category-card" href="category.php?id=<?php echo $row['id']; ?>">
                             <img src="./img/categories/img<?php echo $row['id']; ?>.webp" alt="<?php echo $row['name']; ?>" />
                             <div class="category-title"><?php echo $row['name']; ?></div>
-                        </div>
+                        </a>
                     <?php
                     }
                     ?>
@@ -65,22 +64,7 @@ $featured_products_result = mysqli_query($conn, $sql);
             echo "<p>No categories found.</p>";
         }
         ?>
-
-        <section class="about-section">
-            <div class="container">
-                <h2 class="section-title">Our Story</h2>
-                <div class="about-content">
-                    <p>
-                        Luxe Couture was born from a passion for exceptional craftsmanship
-                        and timeless design. Our mission is to bring the finest in fashion
-                        to those who appreciate the art of dressing well. Each piece in
-                        our collection is carefully curated to ensure the highest quality
-                        and style.
-                    </p>
-                </div>
-            </div>
-        </section>
-        <section class="featured-product">
+        <section class="featured-product" style="background-color: #f4f4f4;">
             <div class="container">
                 <h2 class="section-title">Featured Products</h2>
                 <div class="product-grid">

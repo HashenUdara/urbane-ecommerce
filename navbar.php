@@ -7,8 +7,8 @@
         <div class="nav-links">
             <a href="./index.php">Home</a>
             <a href="./shop.php">Collections</a>
-            <a href="./cart">Cart</a>
-            <a href="#">Contact</a>
+            <a href="./cart.php">Cart</a>
+            <a href="./login.php">Logout</a>
         </div>
     </nav>
 </header>
