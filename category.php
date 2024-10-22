@@ -2,7 +2,7 @@
 include 'db_connect.php';
 include 'header.php';
 
-// Get category ID from URL parameter
+// Get category ID 
 $category_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 // Fetch category details
@@ -17,13 +17,11 @@ $products_result = mysqli_query($conn, $products_sql);
 
 ?>
 
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($category['name']); ?> - Urban Clothing</title>
+    <title><?php echo ($category['name']); ?> - Urban Clothing</title>
     <link rel="stylesheet" href="./css/home.css">
     <link rel="stylesheet" href="./css/category.css">
 </head>
@@ -53,12 +51,12 @@ $products_result = mysqli_query($conn, $products_sql);
                 ?>
                         <div class="product-card">
                             <div class="product-image">
-                                <img src="<?php echo $imagePath ?>" alt="<?php echo htmlspecialchars($row['name']) ?>" />
+                                <img src="<?php echo $imagePath ?>" alt="<?php echo ($row['name']) ?>" />
                             </div>
                             <div class="product-details">
-                                <h2 class="product-title"><?php echo htmlspecialchars($row['name']) ?></h2>
+                                <h2 class="product-title"><?php echo ($row['name']) ?></h2>
                                 <p class="product-price">LKR.<?php echo number_format($row['price'], 2) ?></p>
-                                <p class="product-description"><?php echo htmlspecialchars($row['description']) ?></p>
+                                <p class="product-description"><?php echo ($row['description']) ?></p>
                                 <a href="product_details.php?product_id=<?php echo $row['id'] ?>" class="btn">View Details</a>
                             </div>
                         </div>

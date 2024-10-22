@@ -26,7 +26,7 @@ if (isset($_GET['product_id'])) {
 }
 
 
-$category_id = $product['category_id']; // Assuming you have the category ID stored in $product
+$category_id = $product['category_id'];
 
 // Fetch products from the same category, excluding the current product
 $sql = "SELECT id, name, description, price, img_url 
@@ -69,12 +69,6 @@ $same_category_products_result = mysqli_query($conn, $sql);
                 quantityInput.value = currentValue + 1;
             });
 
-            // Prevent form submission when pressing Enter on quantity input
-            quantityInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                }
-            });
         });
     </script>
     <style>

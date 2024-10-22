@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db_connect.php'; // Include your database connection
+include 'db_connect.php';
 
 // Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
@@ -62,7 +62,7 @@ if (isset($_POST['product_id']) && isset($_POST['quantity'])) {
         header("Location: cart.php?msg=added_to_cart");
     } else {
         // If the product doesn't exist or insufficient stock
-        header("Location: product.php?id=$product_id&msg=out_of_stock");
+        header("Location: product_details.php?product_id=$product_id&msg=out_of_stock");
     }
 } else {
     header("Location: index.php");

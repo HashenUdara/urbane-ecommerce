@@ -20,10 +20,10 @@ $error_message = '';
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $address = mysqli_real_escape_string($conn, $_POST['address']);
-    $phone_number = mysqli_real_escape_string($conn, $_POST['phone_number']);
+    $name =  $_POST['name'];
+    $email =  $_POST['email'];
+    $address =  $_POST['address'];
+    $phone_number =  $_POST['phone_number'];
 
     // Check if email already exists for another user
     $email_check_query = "SELECT user_id FROM users WHERE email = '$email' AND user_id != $user_id";
@@ -67,9 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Details | Luxe Couture</title>
+    <title>Account Details </title>
     <link rel="stylesheet" href="./css/home.css">
     <style>
         .form-group {

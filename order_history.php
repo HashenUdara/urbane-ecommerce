@@ -48,9 +48,7 @@ while ($row = mysqli_fetch_assoc($orders_result)) {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Account - Order History | Luxe Couture</title>
+    <title>My Account - Order History</title>
     <link rel="stylesheet" href="./css/home.css">
 </head>
 
@@ -96,7 +94,6 @@ while ($row = mysqli_fetch_assoc($orders_result)) {
                                     <?php endforeach; ?>
                                 </div>
                                 <div class="order-total">Total: $<?php echo number_format($order['total_amount'], 2); ?></div>
-                                <a href="view_order.php?order_id=<?php echo $order['order_id']; ?>" class="btn">View Order</a>
                             </div>
                         <?php endforeach; ?>
                     <?php endif; ?>

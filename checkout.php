@@ -60,8 +60,6 @@ if (mysqli_query($conn, $order_query)) {
     <html lang="en">
 
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Order Confirmation | Urban Clothing</title>
         <link rel="stylesheet" href="./css/home.css">
         <style>
@@ -163,8 +161,8 @@ if (mysqli_query($conn, $order_query)) {
                 </div>
                 <div class="user-details">
                     <h2>Customer Information</h2>
-                    <p>Name: <?php echo htmlspecialchars($user_data['name']); ?></p>
-                    <p>Email: <?php echo htmlspecialchars($user_data['email']); ?></p>
+                    <p>Name: <?php echo ($user_data['name']); ?></p>
+                    <p>Email: <?php echo ($user_data['email']); ?></p>
                 </div>
                 <div class="order-summary">
                     <h2>Order Summary</h2>

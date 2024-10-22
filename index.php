@@ -2,7 +2,7 @@
 include 'db_connect.php';
 include 'header.php';
 // Fetch categories from the database
-$sql = "SELECT id, name, description FROM categories LIMIT 4"; // Adjust limit as needed
+$sql = "SELECT id, name, description FROM categories LIMIT 4";
 $categories_result = mysqli_query($conn, $sql);
 
 // Fetch featured products
@@ -31,12 +31,12 @@ $featured_products_result = mysqli_query($conn, $sql);
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1>Elegance Redefined</h1>
+                <h1 style="color: #f4f4f4;">Elegance Redefined</h1>
                 <p>
                     Discover the latest in high-end fashion, where style meets
                     sophistication.
                 </p>
-                <a href="#" class="btn">Shop Now</a>
+                <a href="./shop.php" class="btn">Shop Now</a>
             </div>
         </section>
         <?php

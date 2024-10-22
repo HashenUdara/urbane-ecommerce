@@ -19,10 +19,10 @@ $sql_cart = "SELECT ci.product_id, ci.quantity, p.name, p.price, p.img_url
 
 $result_cart = mysqli_query($conn, $sql_cart);
 
-// Initialize totals
+
 $subtotal = 0;
-$shipping = 10.00; // Flat rate shipping
-$tax_rate = 0; // 10% tax rate
+$shipping = 10.00;
+$tax_rate = 0;
 $all_qty = 0;
 $cart_items = [];
 
@@ -41,8 +41,6 @@ $total = $subtotal + $shipping + $tax;
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart | Urban Clothing</title>
     <link rel="stylesheet" href="./css/home.css">
 </head>
@@ -114,11 +112,6 @@ $total = $subtotal + $shipping + $tax;
         </div>
     </main>
 
-    <?php include 'footer.php'; ?>
 </body>
 
 </html>
-
-<?php
-mysqli_close($conn);
-?>
