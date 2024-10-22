@@ -7,7 +7,6 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
-// Role-based access control
 if (isset($_SESSION['role'])) {
     if ($_SESSION['role'] != 'admin') {
         // Admin can access admin pages
@@ -15,7 +14,7 @@ if (isset($_SESSION['role'])) {
         exit();
     }
 } else {
-    // If no role is set, force a logout for safety
+    // If no role is set
     header("Location: logout.php");
     exit();
 }

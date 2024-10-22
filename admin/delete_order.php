@@ -5,7 +5,8 @@ include '../db_connect.php';
 if (isset($_GET['order_id'])) {
     $delete_id = (int)$_GET['order_id'];
 
-    // Begin a transaction
+
+    // learn from : https://www.tutorialspoint.com/php/php_function_mysqli_begin_transaction.htm
     mysqli_begin_transaction($conn);
 
     try {
@@ -21,7 +22,7 @@ if (isset($_GET['order_id'])) {
         mysqli_commit($conn);
         header("Location:orders.php?msg=order_deleted");
     } catch (mysqli_sql_exception $exception) {
-        // Rollback the transaction in case of an error
+
         mysqli_rollback($conn);
         echo "Error: Unable to delete order due to related data.";
     }

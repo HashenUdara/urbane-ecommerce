@@ -3,7 +3,7 @@ include './auth.php';
 include '../db_connect.php';
 $title = 'Admin Panel';
 ?>
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
