@@ -1,5 +1,5 @@
 <?php
-include '../header.php';
+include './auth.php';
 include '../db_connect.php';
 $title = 'Admin Panel';
 
@@ -41,7 +41,7 @@ $result = mysqli_query($conn, $sql);
         <div class="content-header">
             <div>
                 <h1>Users</h1>
-                <p style="color:#4c4c4c; padding-bottom:20px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique dolorem porro quam rem suscipit</p>
+                <p style="color:#4c4c4c; padding-bottom:20px;">Manage your application users here.</p>
             </div>
             <a class="button w-fit" href="./add_user.php">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">

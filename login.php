@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: ./admin/index.php");
                 exit();
             } else if ($row['role'] == 'customer') {
-                header('Location: dashboard.php');
+                header('Location: index.php');
             }
         } else {
             $err_msg = "Invalid password.";

@@ -5,7 +5,7 @@
 
     <ul>
         <li>
-            <a href="#" class="toggle-btn ">
+            <a href="./index.php">
 
                 Dashboard
             </a>

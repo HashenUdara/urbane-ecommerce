@@ -1,5 +1,5 @@
 <?php
-include '../header.php';
+include './auth.php';
 include '../db_connect.php';
 
 $title = 'Add New User';

@@ -1,5 +1,5 @@
 <?php
-include '../header.php';
+include './auth.php';
 include '../db_connect.php';
 $title = 'Admin Panel';
 ?>
@@ -7,8 +7,6 @@ $title = 'Admin Panel';
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title ?></title>
     <link rel="stylesheet" href="../css/dashboard.css">
 </head>
@@ -19,31 +17,34 @@ $title = 'Admin Panel';
     <?php include("./sidebar.php"); ?>
 
     <!-- Topbar -->
-    <div class="topbar">
-        <div class="search-box">
-            <input type="text" placeholder="Search...">
-        </div>
-        <div class="profile">
-            <img src="https://via.placeholder.com/40" alt="Profile">
-            <span>Admin Name</span>
-        </div>
-    </div>
+    <?php include("./topbar.php"); ?>
 
-    <!-- Content -->
     <div class="content">
         <h1>Dashboard</h1>
+        <br>
         <div class="grid-container">
+            <!-- Users Card -->
             <div class="card">
-                <div class="card-header">Card 1</div>
-                <p>Some content inside this card.</p>
+                <img src="../img/users-icon.png" alt="Users Icon" class="card-icon">
+                <div class="card-header">Users</div>
+                <p>Manage all registered users. View, edit, or delete user information and control user access.</p>
+                <a href="users.php" class="card-btn">Go to Users</a>
             </div>
+
+            <!-- Products Card -->
             <div class="card">
-                <div class="card-header">Card 2</div>
-                <p>Some content inside this card.</p>
+                <img src="../img/products-icon.png" alt="Products Icon" class="card-icon">
+                <div class="card-header">Products</div>
+                <p>Manage the products in your store. Add new products, edit details, and update inventory.</p>
+                <a href="products.php" class="card-btn">Go to Products</a>
             </div>
+
+            <!-- Orders Card -->
             <div class="card">
-                <div class="card-header">Card 3</div>
-                <p>Some content inside this card.</p>
+                <img src="../img/orders-icon.png" alt="Orders Icon" class="card-icon">
+                <div class="card-header">Orders</div>
+                <p>Track customer orders. View order statuses, update shipment details, and manage payments.</p>
+                <a href="orders.php" class="card-btn">Go to Orders</a>
             </div>
         </div>
     </div>

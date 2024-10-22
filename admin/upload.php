@@ -1,5 +1,5 @@
 <?php
-include '../db_connect.php';
+include './auth.php';
 
 // Directory for uploads
 $image_dir = '../uploads/images/';

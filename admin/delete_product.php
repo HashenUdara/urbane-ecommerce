@@ -1,6 +1,6 @@
 
 <?php
-include '../header.php';
+include './auth.php';
 include '../db_connect.php';
 
 if (isset($_GET['product_id'])) {

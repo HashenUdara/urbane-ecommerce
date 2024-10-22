@@ -23,11 +23,13 @@ $result_cart = mysqli_query($conn, $sql_cart);
 $subtotal = 0;
 $shipping = 10.00; // Flat rate shipping
 $tax_rate = 0; // 10% tax rate
+$all_qty = 0;
 $cart_items = [];
 
 while ($row = mysqli_fetch_assoc($result_cart)) {
     $cart_items[] = $row;
     $subtotal += $row['price'] * $row['quantity'];
+    $all_qty += $row['quantity'];
 }
 
 // Calculate tax and total
@@ -49,7 +51,8 @@ $total = $subtotal + $shipping + $tax;
 
     <?php include './navbar.php'; ?>
     <main class="container" style="margin: 100px auto;">
-        <h1>Your Cart</h1>
+        <h1>Your Cart (<?php echo $all_qty; ?> items)</h1>
+        <br>
         <div class="cart-container">
             <div class="cart-items">
                 <?php if (empty($cart_items)) : ?>
@@ -58,12 +61,15 @@ $total = $subtotal + $shipping + $tax;
                 <?php else : ?>
                     <?php foreach ($cart_items as $item) : ?>
                         <div class="cart-item">
-                            <img src="<?php
-                                        $imagePath = dirname($_SERVER['PHP_SELF'])  . $item['img_url'];
-                                        echo $imagePath; ?>" alt="<?php echo $item['name']; ?>" />
+                            <a href="product_details.php?product_id=<?php echo $item['product_id']; ?>">
+                                <img src="<?php
+                                            $imagePath = dirname($_SERVER['PHP_SELF'])  . $item['img_url'];
+                                            echo $imagePath; ?>" alt="<?php echo $item['name']; ?>" />
+                            </a>
+
                             <div class="item-details">
-                                <div class="item-name"><?php echo $item['name']; ?></div>
-                                <div class="item-price">$<?php echo number_format($item['price'], 2); ?></div>
+                                <a class="item-name"><?php echo $item['name']; ?></a>
+                                <div class="item-price">$<?php echo number_format($item['price'] * $item['quantity'], 2); ?></div>
                                 <div class="item-quantity">
                                     <form method="POST" action="update_cart_quantity.php">
                                         <input type="hidden" name="product_id" value="<?php echo $item['product_id']; ?>">
@@ -77,7 +83,7 @@ $total = $subtotal + $shipping + $tax;
                                         <button type="submit" name="update_quantity" value="increase" class="quantity-btn">+</button>
                                     </form>
                                     <span class="remove-item">
-                                        <a href="remove_from_cart.php?product_id=<?php echo $item['product_id']; ?>">Remove</a>
+                                        <a class="btn" style="background-color: red; font-size:small; padding:8px 12px;" href="remove_from_cart.php?product_id=<?php echo $item['product_id']; ?>">Remove</a>
                                     </span>
                                 </div>
                             </div>
